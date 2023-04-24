@@ -4,7 +4,7 @@ Optical character recognition
 ## Feature Extraction (Max 200 Words)
 [I reduced the number of features in the training data to the first 1150 so that i could store the features  in the model dictionary with the key
 '14395' (and also save space for the stop-list model['stop']) in order to  carry them over to the function call where dimensionality reduction is applied to the dev data. I need the training data
- to be accessible because i need it to use it to calculate the covariance matrix and the mean to find the test pcas. I also have another
+ to be accessible because i need to use the training datat to calculate the covariance matrix and the mean to find the test pcas. I also have another
  key in model dictionary called 'best' which stores the top 10 indexes of the pcas with the highest divergence. I calculated the  divergence
  of features in every pair combination of classes and then i summed the divergence of each feature to find the indexes of top 10 features with the highest
   divergences. I find that i get the best results when i get the the top 10 pcas out of 20. ]
