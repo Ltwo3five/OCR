@@ -1,19 +1,19 @@
 # OCR
 Optical character recognition
 
-## Feature Extraction (Max 200 Words)
+## Feature Extraction 
 [I reduced the number of features in the training data to the first 1150 so that i could store the features  in the model dictionary with the key
 '14395' (and also save space for the stop-list model['stop']) in order to  carry them over to the function call where dimensionality reduction is applied to the dev data. I need the training data
  to be accessible because i need to use the training data to calculate the covariance matrix and the mean to find the test pcas. I also have another
  key in model dictionary called 'best' which stores the top 10 indexes of the pcas with the highest divergence. I calculated the  divergence
  of features in every pair combination of classes and then i summed the divergence of each feature to find the indexes of top 10 features with the highest
   divergences. I find that i get the best results when i get the the top 10 pcas out of 20. ]
-## Classifier (Max 200 Words)
+## Classifier 
 [I used the k nearest neighbour classifier. The accuracy of documents 1 and 2 decreases as k increases but the accuracy of 3,4,5,6 increases
 significantly. The performance below is from a 5 nearest neighbour classifier. I find that 5 nearest neighbour to be the point
 where the accuracy increase in page 3,4,5 is most significant, without decreasing the accuracy in pages 1 and 2 by too much. From k=10 and above
 the increase in accuracy of pages 3,4,5 is only by 1 or 2 percent ]
-## Error Correction (Max 200 Words)
+## Error Correction 
 [I got the x values of the bb boxes and put each line into a tuple because the distance between x1 of the next line
 and x2 of the previous line is noticeably greater between words. I sliced the labels based on the distance between x1 of the next
  tuple and x2 of the current tuple being greater than 7. Now with my list of words i iterate through the list , joining each word into a string
